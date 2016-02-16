@@ -1,0 +1,15 @@
+// ==========================================================================
+// -- Helper Mixins
+// ==========================================================================
+
+@mixin self_clear() {
+	&:after {
+		content: " "; 
+		display:block;
+		clear:both;
+	}
+}
+
+@mixin remove_scroll() {
+	&::-webkit-scrollbar {display: none;}
+}
