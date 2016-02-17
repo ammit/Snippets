@@ -1,0 +1,33 @@
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+    window.onload = function() {
+        initialize();
+    }
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(50.72579516065978, -3.528818896125813);
+        var myOptions = {
+            zoom: 18,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            panControl: false,
+            zoomControl: false,
+            scaleControl: false,
+            mapTypeControl: false,
+            streetViewControl: false,
+            scrollwheel: false,
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        // var infowindow = new google.maps.InfoWindow({
+        //     // content: ""
+        // });
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            icon: '<?php bloginfo('template_url');?>/assets/img/pin-shadow.png',
+            title: ""
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+        });
+    }
+</script>
